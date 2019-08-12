@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             manage.startBtn.onClick.AddListener(() => startcountFunc());
             FrontCheckOffset = this.transform.position - frontCheck.transform.position;
             BackCheckOffset = this.transform.position - BackCheck.transform.position;
-            GetComponent<SpriteRenderer>().sortingOrder = 2;
+           // GetComponent<SpriteRenderer>().sortingOrder = 2;
             pv.RPC("PlayerAdd", RpcTarget.AllBuffered, null);
             CurrenPlayerDenote.gameObject.SetActive(true);
             MinForceSet();
@@ -467,11 +467,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 {
                     straigtJump = true;
                 }
-                if (this.GetComponent<SpriteRenderer>().flipX)
-                {
-                    this.GetComponent<SpriteRenderer>().flipX = false;
+                //if (this.GetComponent<SpriteRenderer>().flipX)
+                //{
+                //    this.GetComponent<SpriteRenderer>().flipX = false;
 
-                }
+                //}
                 if (res.Length == 0)
                 {
                     animator.SetBool("wallslide", false);
@@ -559,7 +559,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                 if (WallJumpActiveBool == false)
                                 {
                                     // if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
-                                    this.GetComponent<SpriteRenderer>().flipX = false;
+                                 //   this.GetComponent<SpriteRenderer>().flipX = false;
                                     print("walljump1" + res[0]);
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
 
@@ -576,7 +576,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                 if (WallJumpActiveBool == false)
                                 {
                                     //   if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
-                                    this.GetComponent<SpriteRenderer>().flipX = true;
+                                  //  this.GetComponent<SpriteRenderer>().flipX = true;
 
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
 

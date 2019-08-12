@@ -10478,7 +10478,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428335605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12649,7 +12649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab:
-  - {fileID: 1991867599321214, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
+  - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
   - {fileID: 1653083217306508, guid: 5a2b9549ccae6469f88d3d6302477b7a, type: 3}
   - {fileID: 1991867599321214, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
   reach: 0
