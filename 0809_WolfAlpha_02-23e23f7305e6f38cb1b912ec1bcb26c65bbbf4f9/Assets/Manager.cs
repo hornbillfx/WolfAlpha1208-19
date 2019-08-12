@@ -265,7 +265,7 @@ public class Manager : MonoBehaviour
         UIHandler temp1 = GameObject.Find("Launcher").GetComponent<UIHandler>();
         id = temp1.chosenCharacter;
         print(id);
-        GameObject temp = PhotonNetwork.Instantiate(playerPrefab[0].name,playerPrefab[0].transform.position,playerPrefab[0].transform.rotation);
+        GameObject temp = PhotonNetwork.Instantiate(playerPrefab[0].name, playerPrefab[0].transform.position,playerPrefab[0].transform.rotation);
         
         Camera.main.transform.GetComponent<CameraFollow>().target = temp.transform;
        

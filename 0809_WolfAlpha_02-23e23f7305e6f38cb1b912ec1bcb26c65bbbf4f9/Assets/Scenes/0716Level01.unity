@@ -9342,87 +9342,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1317874269
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1991867599321214, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_Name
-      value: Wolf
-      objectReference: {fileID: 0}
-    - target: {fileID: 1991867599321214, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 82.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385863451500172, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8709200861402026714, guid: f5357f6c4b1f44c02bff8142bdb1fc40,
-        type: 3}
-      propertyPath: viewIdField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 50905653924785148, guid: f5357f6c4b1f44c02bff8142bdb1fc40,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114036424418022114, guid: f5357f6c4b1f44c02bff8142bdb1fc40,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114747684147067978, guid: f5357f6c4b1f44c02bff8142bdb1fc40,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
 --- !u!1 &1320159271
 GameObject:
   m_ObjectHideFlags: 0
@@ -12650,8 +12569,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab:
   - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
-  - {fileID: 1653083217306508, guid: 5a2b9549ccae6469f88d3d6302477b7a, type: 3}
-  - {fileID: 1991867599321214, guid: f5357f6c4b1f44c02bff8142bdb1fc40, type: 3}
+  - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
+  - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
   reach: 0
   ReloadBtn: {fileID: 1233881348}
   attackBtn: {fileID: 1805198303}

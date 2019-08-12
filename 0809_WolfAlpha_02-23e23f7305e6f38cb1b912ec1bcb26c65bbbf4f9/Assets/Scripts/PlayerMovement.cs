@@ -89,11 +89,19 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     {
         if (pv.IsMine)
         {
-          //  runSpeed += Time.deltaTime * controlData.MaxRunForce * 100;
+            float temp1 = runSpeed;
+            controlData.TargetSpeed += 50;
+            controlData.MaxRunForce += 2000;
+            MinRunForce += 2000;
+            //  runSpeed += Time.deltaTime * controlData.MaxRunForce * 100;
             //temp.GetComponent<PlayerMovement>().controlData.TargetSpeed = temp.GetComponent<PlayerMovement>().controlData.TargetSpeed*1.5f;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             //temp.GetComponent<PlayerMovement>().controlData.TargetSpeed = temp.GetComponent<PlayerMovement>().controlData.TargetSpeed/1.5f ;
-         //   runSpeed += Time.deltaTime * controlData.MaxRunForce / 100;
+            //   runSpeed += Time.deltaTime * controlData.MaxRunForce / 100;
+            controlData.TargetSpeed -= 50;
+            controlData.MaxRunForce -= 2000;
+            MinRunForce -= 2000;
+            runSpeed = temp1;
 
         }
 
