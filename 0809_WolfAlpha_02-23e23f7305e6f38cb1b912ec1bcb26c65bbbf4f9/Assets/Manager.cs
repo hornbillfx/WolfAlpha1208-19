@@ -23,6 +23,10 @@ public class Manager : MonoBehaviour
     public List<Color> PlayerDistBGColor = new List<Color>();
     public List<GameObject> levels = new List<GameObject>();
 
+    public Button ShurikenBtn;
+    public GameObject ShurikenPrefab;
+
+    public List<ButtonClick> ButtonClickCheck = new List<ButtonClick>();
 
 
     public float FinalDist;

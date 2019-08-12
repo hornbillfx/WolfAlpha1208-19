@@ -480,8 +480,8 @@ public class PM : MonoBehaviour
             }
             else
             {
-
-                if (Input.touchCount == 1 || Input.GetKeyDown(KeyCode.UpArrow))
+              
+                if (Input.touchCount == 1  || Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     if (DOTouchCount)
                     {

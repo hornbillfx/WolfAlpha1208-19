@@ -801,6 +801,7 @@ MonoBehaviour:
   won: {fileID: 722993384}
   failed: {fileID: 1655574325}
   run: 0
+  ShurikenObj: {fileID: 91837068646702450}
   Ac: {fileID: 0}
   UI: {fileID: 0}
   MinRunForce: 0
@@ -819,6 +820,7 @@ MonoBehaviour:
   controlData: {fileID: 0}
   WallJumpActiveBool: 0
   WallJumpActive: 0
+  NoRun: 0
   rb2d: {fileID: 50905653924785148}
   info: 
   winpos: {x: 0, y: -2, z: 0}
@@ -831,7 +833,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991867599321214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eb7796b1ee3044688b71b596fcfa525, type: 3}
   m_Name: 
@@ -843,6 +845,9 @@ MonoBehaviour:
   shuriken: {fileID: 4490897986864414730, guid: a7fd261cb695c427683c044ab714d143,
     type: 3}
   pv: {fileID: 8709200861402026714}
+  SentBy: {fileID: 0}
+  power: 0
+  collectedCharacter: []
 --- !u!114 &8709200861402026714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,7 +870,7 @@ MonoBehaviour:
   - {fileID: 185505633}
   - {fileID: 806287189337458876}
   viewIdField: 0
-  InstantiationId: 1
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &185505633
 MonoBehaviour:

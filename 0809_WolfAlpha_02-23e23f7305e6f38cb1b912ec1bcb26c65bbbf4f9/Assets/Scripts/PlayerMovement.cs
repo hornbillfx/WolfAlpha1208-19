@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             CurrenPlayerDenote.gameObject.SetActive(true);
             MinForceSet();
             manage.LocalPlayer = this.gameObject;
+            manage.attackBtn.onClick.RemoveAllListeners();
+            manage.attackBtn.onClick.AddListener(() => speedUpFunc());
+            manage.ShurikenBtn.onClick.RemoveAllListeners();
+
+            manage.ShurikenBtn.onClick.AddListener(() => ShurikenaAttackFunc());
         }
         else
         {
@@ -63,6 +68,36 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             CurrenPlayerDenote.gameObject.SetActive(false);
 
         }
+    }
+    public GameObject ShurikenObj;
+
+    public void ShurikenaAttackFunc()
+    {
+      PowerUp temp = PhotonNetwork.Instantiate(Manager.manage.ShurikenPrefab.name, ShurikenObj.transform.position, Quaternion.identity).GetComponent<PowerUp>();
+        temp.SentBy = this.gameObject;
+        manage.ShurikenBtn.gameObject.SetActive(false);
+
+
+    }
+    public void speedUpFunc()
+    {
+        StartCoroutine(SpeedUp(this.gameObject));
+        Manager.manage.attackBtn.gameObject.SetActive(false);
+
+    }
+    public IEnumerator SpeedUp(GameObject temp)
+    {
+        if (pv.IsMine)
+        {
+          //  runSpeed += Time.deltaTime * controlData.MaxRunForce * 100;
+            //temp.GetComponent<PlayerMovement>().controlData.TargetSpeed = temp.GetComponent<PlayerMovement>().controlData.TargetSpeed*1.5f;
+            yield return new WaitForSeconds(1f);
+            //temp.GetComponent<PlayerMovement>().controlData.TargetSpeed = temp.GetComponent<PlayerMovement>().controlData.TargetSpeed/1.5f ;
+         //   runSpeed += Time.deltaTime * controlData.MaxRunForce / 100;
+
+        }
+
+
     }
     public void startcountFunc()
     {
@@ -219,7 +254,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         // Update is called once per frame
         void Update()
     {
-        Debug.LogError(PhotonNetwork.CountOfPlayers);
+
 
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (pv.IsMine)
@@ -230,7 +265,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             
             if (Input.touchCount == 0)
             {
-                DOTouchCount = true;
+                if(ButtonCheck()==false)
+                    DOTouchCount = true;
             }
             frontCheck.transform.position = this.transform.position - FrontCheckOffset;
             BackCheck.transform.position = this.transform.position - BackCheckOffset;
@@ -348,7 +384,42 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     public bool WallJumpActiveBool;
     public bool WallJumpActive;
 
+    public bool NoRun;
+  //  [PunRPC]
+    public void PlayerPunished()
+    {
+        if(pv.IsMine)
+        {
+            StartCoroutine(PlayerPunishedRoutine());
 
+        }
+    }
+    IEnumerator PlayerPunishedRoutine()
+    {
+          runSpeed = 0;
+       // runSpeed = controlData.TargetSpeed * 1.5f;
+        NoRun = true;
+
+        yield return new WaitForSeconds(1f);
+        NoRun = false;
+       // runSpeed = controlData.TargetSpeed;
+       runSpeed = controlData.TargetSpeed;
+
+    }
+
+    bool ButtonCheck()
+    {
+
+        for(int i=0;i<manage.ButtonClickCheck.Count;i++)
+        {
+            if(manage.ButtonClickCheck[i].ButtonClicked)
+            {
+                return true;
+                
+            }
+        }
+        return false;
+    }
     private void FixedUpdate()
     {
         if(pv.IsMine)
@@ -361,14 +432,21 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             {
                 if (NormalMove == false)
                 {
-                    controller.Move(horizontalMove * Time.deltaTime, crouch, false);
+                    if(NoRun==false)
+                    {
+                        controller.Move(horizontalMove * Time.deltaTime, crouch, false);
+
+                    }
 
                 }
 
             }
             else
             {
-                controller.Move(horizontalMove * Time.deltaTime, crouch, false);
+                if (NoRun==false)
+                {
+                    controller.Move(horizontalMove * Time.deltaTime, crouch, false);
+                }
 
             }
 
@@ -398,12 +476,16 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 {
                     animator.SetBool("wallslide", false);
 
-                    if (Input.touchCount == 1  || Input.GetKeyDown(KeyCode.UpArrow))
+                    if (Input.touchCount == 1 && Input.mousePosition.x < Screen.width * .75f || Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         if (DOTouchCount)
                         {
+                            Debug.LogError(ButtonCheck());
 
-                            controller.Move(0 * Time.deltaTime, crouch, true);
+                            if (ButtonCheck() == false)
+                            {
+                                controller.Move(0 * Time.deltaTime, crouch, true);
+                            }
                             DOTouchCount = false;
                         }
                         // controller.Move(horizontalMove * Time.deltaTime, crouch, true);
@@ -427,7 +509,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 else
                 {
 
-                    if (Input.touchCount == 1 || Input.GetKeyDown(KeyCode.UpArrow))
+                    if (Input.touchCount == 1 && Input.mousePosition.x < Screen.width * .75f || Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         if (DOTouchCount)
                         {
@@ -439,7 +521,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                 NormalMove = true;
 
                             }
-                            controller.Move(0 * Time.deltaTime, crouch, true);
+                            Debug.LogError(ButtonCheck());
+                            if (ButtonCheck() == false)
+                            {
+                                controller.Move(0 * Time.deltaTime, crouch, true);
+                            }
 
 
                             //  StartCoroutine(WallJumpRoutine());
@@ -461,7 +547,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
                 }
 
-                if (Input.touchCount == 1 || Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.touchCount == 1 && Input.mousePosition.x < Screen.width * .75f|| Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     if (DOTouchCount)
                     {
@@ -538,6 +624,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             }
             if (run == false)
             {
+                if (runSpeed > controlData.TargetSpeed)
+                {
+
+                }
+
                 if (runSpeed > controlData.BaseSpeed && runSpeed < controlData.TargetSpeed)
                 {
                     runSpeed += Time.deltaTime * MinRunForce;
@@ -552,7 +643,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 if (runSpeed < controlData.BaseSpeed && runSpeed > 0f)
                 {
                     runSpeed += Time.deltaTime * controlData.MaxRunForce;
-                    Debug.Log(runSpeed);
+
                 }
                 //  controller.Move(horizontalMove * Time.deltaTime, crouch, jump);
 
@@ -579,6 +670,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             transform.position = Vector3.Lerp(transform.position,movement,Time.deltaTime*10f);
 
         }
+
+    }
+    [PunRPC]
+    public void Attacked()
+    {
 
     }
     [PunRPC]
@@ -661,9 +757,9 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             if (collision.tag == "Shuriken")
             {
 
-                GetComponent<PowerUp>().attackButton.gameObject.SetActive(true);
-                GetComponent<PowerUp>().attackButton.GetComponent<Button>().enabled = true;
-                GetComponent<PowerUp>().attackButton.GetComponent<Image>().enabled = true;
+           //     GetComponent<PowerUp>().attackButton.gameObject.SetActive(true);
+            //    GetComponent<PowerUp>().attackButton.GetComponent<Button>().enabled = true;
+            //    GetComponent<PowerUp>().attackButton.GetComponent<Image>().enabled = true;
             }
             if (collision.tag == "Finish")
             {

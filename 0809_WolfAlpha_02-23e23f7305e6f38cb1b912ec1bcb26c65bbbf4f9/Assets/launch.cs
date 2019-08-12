@@ -56,6 +56,6 @@ public class launch : MonoBehaviourPunCallbacks
     void Update()
     {
        
-        print(PhotonNetwork.IsConnected);
+
     }
 }
