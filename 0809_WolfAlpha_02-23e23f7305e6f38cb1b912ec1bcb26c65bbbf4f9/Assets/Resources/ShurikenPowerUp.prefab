@@ -187,6 +187,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 2
   collectedCharacter: []
 --- !u!1 &5192551540723591029

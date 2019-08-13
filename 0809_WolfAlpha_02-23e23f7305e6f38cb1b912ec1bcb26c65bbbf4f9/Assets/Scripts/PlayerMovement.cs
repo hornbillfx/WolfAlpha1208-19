@@ -412,7 +412,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
        // runSpeed = controlData.TargetSpeed * 1.5f;
         NoRun = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4f);
         NoRun = false;
        // runSpeed = controlData.TargetSpeed;
        runSpeed = controlData.TargetSpeed;
