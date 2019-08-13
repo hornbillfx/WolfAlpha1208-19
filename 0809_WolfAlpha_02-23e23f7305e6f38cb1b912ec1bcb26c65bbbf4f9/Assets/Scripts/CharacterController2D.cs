@@ -120,6 +120,15 @@ public class CharacterController2D : MonoBehaviour
                 crouch = true;
             }
         }
+        if(m_Grounded)
+        {
+            animator.SetBool("Jump", false);
+
+        }else
+        {
+            animator.SetBool("Jump", true);
+
+        }
 
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
@@ -194,6 +203,7 @@ public class CharacterController2D : MonoBehaviour
                 m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
                 m_Rigidbody2D.AddForce(new Vector2(0f, GetComponent<PlayerMovement>().controlData.m_JumpForce), ForceMode2D.Impulse);
                 animator.SetTrigger("Jump");
+                animator.SetBool("Jump",true);
                 move *= 0.8f;
 
                 m_Grounded = false;
@@ -202,7 +212,8 @@ public class CharacterController2D : MonoBehaviour
         else
         {
 
-            animator.ResetTrigger("Jump");
+            //  animator.ResetTrigger("Jump");
+
         }
     }
     private void Update()
