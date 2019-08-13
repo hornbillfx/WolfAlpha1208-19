@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     public GameObject failed;
     public bool run;
 
-   
+    public List<Anima2D.SpriteMeshInstance> Order = new List<Anima2D.SpriteMeshInstance>();
 
     private void Start()
     {
@@ -46,6 +46,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         manage.ReloadBtn.onClick.AddListener(() => TowardsLobby());
         if (pv.IsMine)
         {
+            for(int i=0;i<Order.Count;i++)
+            {
+                Order[i].sortingOrder += 1;
+            }
 
             manage.startBtn.onClick.AddListener(() => startcountFunc());
             FrontCheckOffset = this.transform.position - frontCheck.transform.position;
