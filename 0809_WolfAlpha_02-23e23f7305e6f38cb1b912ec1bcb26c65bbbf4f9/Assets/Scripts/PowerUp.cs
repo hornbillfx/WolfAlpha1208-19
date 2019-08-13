@@ -14,12 +14,20 @@ public class PowerUp : MonoBehaviour
     public GameObject shuriken;
     public PhotonView pv;
     public GameObject SentBy;
+    public SpriteRenderer sprit;
 
     private void Start()
     {
-      //  animator = GetComponent<Animator>();
-    //    attackButton = GetComponent<PlayerMovement>().manage.attackBtn;
-     //   attackButton.onClick.AddListener(() => Attack());
+        //  animator = GetComponent<Animator>();
+        //    attackButton = GetComponent<PlayerMovement>().manage.attackBtn;
+        //   attackButton.onClick.AddListener(() => Attack());
+        pv = GetComponent<PhotonView>();
+        sprit = GetComponent<SpriteRenderer>();
+        if(sprit==null)
+        {
+            sprit = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        }
     }
 
     private void Update()
@@ -32,6 +40,7 @@ public class PowerUp : MonoBehaviour
             Vector3 move = transform.InverseTransformDirection(Vector3.right);
             transform.Translate(move);
         }
+       
     }
 
 
@@ -82,7 +91,12 @@ public class PowerUp : MonoBehaviour
                 if (power == Power.SpeedRun)
                 {
                     if (collision.gameObject.GetComponent<PlayerMovement>().pv.IsMine)
+                    {
                         Manager.manage.attackBtn.gameObject.SetActive(true);
+                       pv.RPC("PowerUpDisableFunc", RpcTarget.AllBuffered, null);
+
+                        
+                    }
                     Manager.manage.ShurikenBtn.gameObject.SetActive(false);
 
 
@@ -90,7 +104,11 @@ public class PowerUp : MonoBehaviour
                 else if (power == Power.Shuriken)
                 {
                     if(collision.gameObject.GetComponent<PlayerMovement>().pv.IsMine)
-                         Manager.manage.ShurikenBtn.gameObject.SetActive(true);
+                    {
+                        Manager.manage.ShurikenBtn.gameObject.SetActive(true);
+                        pv.RPC("PowerUpDisableFunc", RpcTarget.AllBuffered, null);
+
+                    }
                     Manager.manage.attackBtn.gameObject.SetActive(false);
 
                 }
@@ -107,4 +125,22 @@ public class PowerUp : MonoBehaviour
           //  collide.SetActive(false);
         }
     }
+
+    [PunRPC]
+    public void PowerUpDisableFunc()
+    {
+        StartCoroutine(PowerUpDisableRoutine());
+    }
+    IEnumerator PowerUpDisableRoutine()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        sprit.enabled = false;
+        yield return new WaitForSeconds(3.5f);
+        GetComponent<Collider2D>().enabled = true;
+        sprit.enabled = true;
+
+
+
+    }
+
 }

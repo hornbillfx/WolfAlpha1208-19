@@ -51,5 +51,6 @@ MonoBehaviour:
   - Waitfunc
   - Attacked
   - PlayerPunished
+  - PowerUpDisableFunc
   DisableAutoOpenWizard: 1
   ShowSettings: 1

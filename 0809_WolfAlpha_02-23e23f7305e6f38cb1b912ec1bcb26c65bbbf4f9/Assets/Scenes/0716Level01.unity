@@ -1248,6 +1248,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 147542421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &147542423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 147542421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &147542424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147542423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 34
+  InstantiationId: 34
+  isRuntimeInstantiated: 0
 --- !u!1 &171949478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,8 +1477,39 @@ PrefabInstance:
       propertyPath: power
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 176449103, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+      propertyPath: pv
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+--- !u!1 &176449102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 176449101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &176449103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176449102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 5
+  InstantiationId: 11
+  isRuntimeInstantiated: 0
 --- !u!1 &179466404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1628,7 @@ GameObject:
   - component: {fileID: 188504368}
   - component: {fileID: 188504367}
   - component: {fileID: 188504366}
+  - component: {fileID: 188504369}
   m_Layer: 0
   m_Name: SpeedUp (4)
   m_TagString: Untagged
@@ -1610,6 +1669,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &188504367
@@ -1686,6 +1746,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &188504369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188504364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 30
+  InstantiationId: 30
+  isRuntimeInstantiated: 0
 --- !u!1 &196793987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,6 +2950,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 385689648}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &385689650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 385689648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &385689651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385689650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 33
+  InstantiationId: 33
+  isRuntimeInstantiated: 0
 --- !u!1 &399187299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,6 +3064,7 @@ GameObject:
   - component: {fileID: 407462424}
   - component: {fileID: 407462423}
   - component: {fileID: 407462422}
+  - component: {fileID: 407462425}
   m_Layer: 0
   m_Name: SpeedUp (3)
   m_TagString: Untagged
@@ -2996,6 +3105,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &407462423
@@ -3072,6 +3182,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &407462425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407462420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 28
+  InstantiationId: 28
+  isRuntimeInstantiated: 0
 --- !u!1001 &423896533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3281,6 +3412,7 @@ GameObject:
   - component: {fileID: 428581243}
   - component: {fileID: 428581242}
   - component: {fileID: 428581241}
+  - component: {fileID: 428581244}
   m_Layer: 0
   m_Name: SpeedUp (8)
   m_TagString: Untagged
@@ -3321,6 +3453,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &428581242
@@ -3397,6 +3530,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &428581244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428581239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 27
+  InstantiationId: 27
+  isRuntimeInstantiated: 0
 --- !u!1001 &454825878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4059,6 +4213,7 @@ GameObject:
   - component: {fileID: 515306551}
   - component: {fileID: 515306550}
   - component: {fileID: 515306549}
+  - component: {fileID: 515306552}
   m_Layer: 0
   m_Name: SpeedUp (6)
   m_TagString: Untagged
@@ -4099,6 +4254,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &515306550
@@ -4175,6 +4331,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &515306552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515306547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 29
+  InstantiationId: 29
+  isRuntimeInstantiated: 0
 --- !u!1 &520325141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4293,6 +4470,7 @@ GameObject:
   - component: {fileID: 539412582}
   - component: {fileID: 539412581}
   - component: {fileID: 539412580}
+  - component: {fileID: 539412583}
   m_Layer: 0
   m_Name: SpeedUp (4)
   m_TagString: Untagged
@@ -4333,6 +4511,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &539412581
@@ -4409,6 +4588,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &539412583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539412578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 21
+  InstantiationId: 21
+  isRuntimeInstantiated: 0
 --- !u!1 &556583128
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,6 +7337,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1031168090}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1031168092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031168090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031168093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031168092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 35
+  InstantiationId: 35
+  isRuntimeInstantiated: 0
 --- !u!1 &1043823212
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,6 +7639,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1078627406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1078627408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1078627406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1078627409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078627408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 31
+  InstantiationId: 31
+  isRuntimeInstantiated: 0
 --- !u!1 &1094892483
 GameObject:
   m_ObjectHideFlags: 0
@@ -7753,6 +8007,7 @@ GameObject:
   - component: {fileID: 1133232456}
   - component: {fileID: 1133232455}
   - component: {fileID: 1133232454}
+  - component: {fileID: 1133232457}
   m_Layer: 0
   m_Name: SpeedUp (1)
   m_TagString: Untagged
@@ -7793,6 +8048,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &1133232455
@@ -7869,6 +8125,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &1133232457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133232452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 23
+  InstantiationId: 23
+  isRuntimeInstantiated: 0
 --- !u!1 &1135757706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8186,6 +8464,7 @@ GameObject:
   - component: {fileID: 1185889869}
   - component: {fileID: 1185889868}
   - component: {fileID: 1185889867}
+  - component: {fileID: 1185889870}
   m_Layer: 0
   m_Name: SpeedUp (2)
   m_TagString: Untagged
@@ -8226,6 +8505,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &1185889868
@@ -8302,6 +8582,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &1185889870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185889865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 24
+  InstantiationId: 24
+  isRuntimeInstantiated: 0
 --- !u!1 &1193212964
 GameObject:
   m_ObjectHideFlags: 0
@@ -9594,8 +9895,39 @@ PrefabInstance:
       propertyPath: power
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 176449103, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+      propertyPath: pv
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+--- !u!1 &1336781935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1336781934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336781936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336781935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 16
+  InstantiationId: 8
+  isRuntimeInstantiated: 0
 --- !u!1 &1352657848
 GameObject:
   m_ObjectHideFlags: 0
@@ -10084,8 +10416,39 @@ PrefabInstance:
       propertyPath: power
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 176449103, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+      propertyPath: pv
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+--- !u!1 &1384721783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1384721782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1384721784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384721783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 18
+  InstantiationId: 10
+  isRuntimeInstantiated: 0
 --- !u!1 &1395394322
 GameObject:
   m_ObjectHideFlags: 0
@@ -10579,8 +10942,40 @@ PrefabInstance:
       propertyPath: power
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 176449103, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+      propertyPath: pv
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+--- !u!1 &1484764481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484764480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1484764482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484764481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 19
+  InstantiationId: 4
+  isRuntimeInstantiated: 0
 --- !u!1 &1491516234
 GameObject:
   m_ObjectHideFlags: 0
@@ -11995,8 +12390,39 @@ PrefabInstance:
       propertyPath: power
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 176449103, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+      propertyPath: pv
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+--- !u!1 &1658582485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1658582484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1658582486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658582485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 17
+  InstantiationId: 9
+  isRuntimeInstantiated: 0
 --- !u!1 &1671156729
 GameObject:
   m_ObjectHideFlags: 0
@@ -12406,6 +12832,7 @@ GameObject:
   - component: {fileID: 1717857131}
   - component: {fileID: 1717857130}
   - component: {fileID: 1717857129}
+  - component: {fileID: 1717857132}
   m_Layer: 0
   m_Name: SpeedUp (7)
   m_TagString: Untagged
@@ -12446,6 +12873,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &1717857130
@@ -12522,6 +12950,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &1717857132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717857127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 25
+  InstantiationId: 25
+  isRuntimeInstantiated: 0
 --- !u!1 &1720134877
 GameObject:
   m_ObjectHideFlags: 0
@@ -12634,6 +13083,7 @@ MonoBehaviour:
   StartSec: 30
   UI: {fileID: 0}
   Ac: {fileID: 0}
+  off: {fileID: 0}
   speed: []
 --- !u!114 &1720134880
 MonoBehaviour:
@@ -12980,8 +13430,39 @@ PrefabInstance:
       propertyPath: power
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 176449103, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+      propertyPath: pv
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140494d1f92034af99eb42f4b75b5a20, type: 3}
+--- !u!1 &1765505022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1765505021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765505023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765505022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 20
+  InstantiationId: 7
+  isRuntimeInstantiated: 0
 --- !u!1 &1795786543
 GameObject:
   m_ObjectHideFlags: 0
@@ -12994,6 +13475,7 @@ GameObject:
   - component: {fileID: 1795786547}
   - component: {fileID: 1795786546}
   - component: {fileID: 1795786545}
+  - component: {fileID: 1795786548}
   m_Layer: 0
   m_Name: SpeedUp (5)
   m_TagString: Untagged
@@ -13034,6 +13516,7 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!212 &1795786546
@@ -13110,6 +13593,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.945091, y: 3.769092}
   m_EdgeRadius: 0
+--- !u!114 &1795786548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795786543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 26
+  InstantiationId: 26
+  isRuntimeInstantiated: 0
 --- !u!1 &1805198301
 GameObject:
   m_ObjectHideFlags: 0
@@ -13253,7 +13757,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805198301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 52c1e14fb1bae400a8f6f4344222aca2, type: 2}
   m_CullingMode: 0
@@ -14434,6 +14938,7 @@ GameObject:
   - component: {fileID: 1983937123}
   - component: {fileID: 1983937122}
   - component: {fileID: 1983937124}
+  - component: {fileID: 1983937125}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: Untagged
@@ -14548,8 +15053,31 @@ MonoBehaviour:
   shuriken: {fileID: 0}
   pv: {fileID: 0}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
+--- !u!114 &1983937125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983937120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 22
+  InstantiationId: 22
+  isRuntimeInstantiated: 0
 --- !u!1 &1992310968
 GameObject:
   m_ObjectHideFlags: 0
@@ -14941,6 +15469,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2029652436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2029652438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
+    type: 3}
+  m_PrefabInstance: {fileID: 2029652436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2029652439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029652438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 32
+  InstantiationId: 32
+  isRuntimeInstantiated: 0
 --- !u!1 &2035672819
 GameObject:
   m_ObjectHideFlags: 0

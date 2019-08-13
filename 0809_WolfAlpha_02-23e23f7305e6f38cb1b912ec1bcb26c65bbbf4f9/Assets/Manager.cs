@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 
-public class Manager : MonoBehaviour
+public class Manager : MonoBehaviourPun
 {
 
     public List<GameObject> playerPrefab;
@@ -31,14 +31,14 @@ public class Manager : MonoBehaviour
 
     public float FinalDist;
     public GameObject finish;
-  //  public List<float> Distances = new List<float>();
+    //  public List<float> Distances = new List<float>();
     public Text t1;
     public Text t2;
     public GameObject LocalPlayer;
     public int startCount;
-   // public float IncreasedrunSpeed = 55f;
+    // public float IncreasedrunSpeed = 55f;
 
-   // public float IncreaseRateSpeed = 1;
+    // public float IncreaseRateSpeed = 1;
 
 
     public float BaseSpeed = 100f;
@@ -54,16 +54,16 @@ public class Manager : MonoBehaviour
 
 
     public float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
-     public Text m_JumpForceTxt;
+    public Text m_JumpForceTxt;
 
-     public float  playerGravityScale, terminalVelocity;
-     public Text playerGravityScaleTxt;
+    public float playerGravityScale, terminalVelocity;
+    public Text playerGravityScaleTxt;
     public Text terminalVelocityTxt;
 
     public Button startBtn;
     public GameObject PlayerReady;
 
-    public int StartSec=30;
+    public int StartSec = 30;
 
     //public void IncreaseRatefunc(int val)
     //{
@@ -96,7 +96,7 @@ public class Manager : MonoBehaviour
 
         levels[UI.selectedLevel].gameObject.SetActive(true);
 
-        FinalDist = Vector3.Distance(new Vector3(0,0,0),finish.transform.position);
+        FinalDist = Vector3.Distance(new Vector3(0, 0, 0), finish.transform.position);
         pv = GetComponent<PhotonView>();
         SpawnPlayer();
 
@@ -112,7 +112,7 @@ public class Manager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("BaseSpeed", 20f);
             BaseSpeedtxt.text = "20";
-           
+
         }
         else
         {
@@ -150,11 +150,11 @@ public class Manager : MonoBehaviour
         }
         else
         {
-           m_JumpForce = PlayerPrefs.GetFloat("m_JumpForce");
+            m_JumpForce = PlayerPrefs.GetFloat("m_JumpForce");
             m_JumpForceTxt.text = m_JumpForce.ToString();
         }
 
-        while(LocalPlayer==null)
+        while (LocalPlayer == null)
         {
             yield return null;
         }
@@ -169,10 +169,10 @@ public class Manager : MonoBehaviour
         }
         else
         {
-           playerGravityScale = PlayerPrefs.GetFloat("playerGravityScale");
+            playerGravityScale = PlayerPrefs.GetFloat("playerGravityScale");
             playerGravityScaleTxt.text = playerGravityScale.ToString();
             LocalPlayer.GetComponent<Rigidbody2D>().gravityScale = playerGravityScale;
-          
+
             //   gravityScale =.playerGravityScale;
         }
 
@@ -180,14 +180,14 @@ public class Manager : MonoBehaviour
         if (PlayerPrefs.GetFloat("terminalVelocity") == 0.0f)
         {
             PlayerPrefs.SetFloat("terminalVelocity", -20);
-          terminalVelocityTxt.text = "-20";
+            terminalVelocityTxt.text = "-20";
 
 
         }
         else
         {
-          terminalVelocity = PlayerPrefs.GetFloat("terminalVelocity");
-           terminalVelocityTxt.text = terminalVelocity.ToString();
+            terminalVelocity = PlayerPrefs.GetFloat("terminalVelocity");
+            terminalVelocityTxt.text = terminalVelocity.ToString();
 
         }
 
@@ -219,8 +219,8 @@ public class Manager : MonoBehaviour
 
     public void JumpSpeed(string num)
     {
-       m_JumpForce = float.Parse(num);
-        PlayerPrefs.SetFloat("m_JumpForce",m_JumpForce);
+        m_JumpForce = float.Parse(num);
+        PlayerPrefs.SetFloat("m_JumpForce", m_JumpForce);
         m_JumpForceTxt.text = m_JumpForce.ToString();
 
 
@@ -229,9 +229,9 @@ public class Manager : MonoBehaviour
     public void PlayerWeight(string num)
     {
         //  GetComponent<Rigidbody2D>().gravityScale = float.Parse(num);
-     playerGravityScale = float.Parse(num);
+        playerGravityScale = float.Parse(num);
         // GetComponent<Rigidbody2D>().gravityScale = GetComponent<CharacterController2D>().playerGravityScale;
-                LocalPlayer.GetComponent<Rigidbody2D>().gravityScale = playerGravityScale;
+        LocalPlayer.GetComponent<Rigidbody2D>().gravityScale = playerGravityScale;
         PlayerPrefs.SetFloat("playerGravityScale", playerGravityScale);
         playerGravityScaleTxt.text = playerGravityScale.ToString();
     }
@@ -239,11 +239,11 @@ public class Manager : MonoBehaviour
     public void TerminalFallSpeed(string num)
     {
         terminalVelocity = float.Parse(num);
-        PlayerPrefs.SetFloat("terminalVelocity",terminalVelocity);
-       terminalVelocityTxt.text = terminalVelocity.ToString();
+        PlayerPrefs.SetFloat("terminalVelocity", terminalVelocity);
+        terminalVelocityTxt.text = terminalVelocity.ToString();
     }
     public AudioControl Ac;
-   public void TowardsLobby()
+    public void TowardsLobby()
     {
         Ac = GameObject.Find("AudioCtrl").GetComponent<AudioControl>();
         Ac.GetComponent<AudioSource>().Stop();
@@ -255,11 +255,17 @@ public class Manager : MonoBehaviour
         PhotonNetwork.LoadLevel("mainMenu");
     }
 
-   public  void Quit()
+    public void Quit()
     {
         Application.Quit();
     }
-  
+    public GameObject off;
+
+   
+
+
+   
+
     void SpawnPlayer()
     {
         UIHandler temp1 = GameObject.Find("Launcher").GetComponent<UIHandler>();
