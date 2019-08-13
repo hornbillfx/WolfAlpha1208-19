@@ -123,8 +123,11 @@ public class CharacterController2D : MonoBehaviour
         if(m_Grounded)
         {
             animator.SetBool("Jump", false);
+            transform.localScale = new Vector3(0.35f, transform.localScale.y, transform.localScale.z);
 
-        }else
+
+        }
+        else
         {
             animator.SetBool("Jump", true);
 

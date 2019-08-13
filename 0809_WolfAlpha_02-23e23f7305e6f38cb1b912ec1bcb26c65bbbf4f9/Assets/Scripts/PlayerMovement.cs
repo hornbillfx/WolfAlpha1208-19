@@ -488,19 +488,22 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 {
                     animator.SetBool("wallslide", false);
 
-                    if (Input.touchCount == 1 && Input.mousePosition.x < Screen.width * .75f || Input.GetKeyDown(KeyCode.UpArrow))
+                    if (Input.touchCount == 1 || Input.GetKeyDown(KeyCode.UpArrow))
                     {
-                        if (DOTouchCount)
+                        if (Input.mousePosition.x > Screen.width * .25f || Input.mousePosition.y > Screen.width * .25f)
                         {
-                            Debug.LogError(ButtonCheck());
-
-                            if (ButtonCheck() == false)
+                            if (DOTouchCount)
                             {
-                                controller.Move(0 * Time.deltaTime, crouch, true);
+                                Debug.LogError(ButtonCheck());
+
+                                if (ButtonCheck() == false)
+                                {
+                                    controller.Move(0 * Time.deltaTime, crouch, true);
+                                }
+                                DOTouchCount = false;
                             }
-                            DOTouchCount = false;
+                            // controller.Move(horizontalMove * Time.deltaTime, crouch, true);
                         }
-                        // controller.Move(horizontalMove * Time.deltaTime, crouch, true);
 
                     }
                     else
@@ -521,28 +524,31 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 else
                 {
 
-                    if (Input.touchCount == 1 && Input.mousePosition.x < Screen.width * .75f || Input.GetKeyDown(KeyCode.UpArrow))
+                    if (Input.touchCount == 1  || Input.GetKeyDown(KeyCode.UpArrow))
                     {
-                        if (DOTouchCount)
+                        if (Input.mousePosition.x > Screen.width * .25f || Input.mousePosition.y > Screen.width * .25f)
                         {
-                            if (NormalMove == false)
+                            if (DOTouchCount)
                             {
-                                print("as");
+                                if (NormalMove == false)
+                                {
+                                    print("as");
 
-                                runSpeed = controlData.BaseSpeed - 1;
-                                NormalMove = true;
+                                    runSpeed = controlData.BaseSpeed - 1;
+                                    NormalMove = true;
 
+                                }
+                                Debug.LogError(ButtonCheck());
+                                if (ButtonCheck() == false)
+                                {
+                                    controller.Move(0 * Time.deltaTime, crouch, true);
+                                }
+
+
+                                //  StartCoroutine(WallJumpRoutine());
+                                print("jump");
+                                DOTouchCount = false;
                             }
-                            Debug.LogError(ButtonCheck());
-                            if (ButtonCheck() == false)
-                            {
-                                controller.Move(0 * Time.deltaTime, crouch, true);
-                            }
-
-
-                            //  StartCoroutine(WallJumpRoutine());
-                            print("jump");
-                            DOTouchCount = false;
                         }
                     }
 
@@ -559,9 +565,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
                 }
 
-                if (Input.touchCount == 1 && Input.mousePosition.x < Screen.width * .75f|| Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.touchCount == 1  || Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    if (DOTouchCount)
+                    if (Input.mousePosition.x > Screen.width * .25f || Input.mousePosition.y > Screen.width * .25f)
+                    {
+                        if (DOTouchCount)
                     {
                         if (WallJumpActive == false)
                         {
@@ -571,7 +579,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                 if (WallJumpActiveBool == false)
                                 {
                                     // if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
-                                 //   this.GetComponent<SpriteRenderer>().flipX = false;
+                                    //   this.GetComponent<SpriteRenderer>().flipX = false;
                                     print("walljump1" + res[0]);
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
 
@@ -588,7 +596,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                 if (WallJumpActiveBool == false)
                                 {
                                     //   if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
-                                  //  this.GetComponent<SpriteRenderer>().flipX = true;
+                                    //  this.GetComponent<SpriteRenderer>().flipX = true;
 
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
 
@@ -604,6 +612,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                             }
                         }
                     }
+                }
                 }
 
             }
@@ -710,6 +719,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             rb2d.velocity = new Vector2(0, 0);
             rb2d.angularVelocity = 0f;
             rb2d.AddForce(new Vector2((controlData.walljumpForceLeft * 2.5f * 1000f * Time.deltaTime), (controlData.m_JumpForce * controlData.walljumpAmplitudeLeft * 1000f * Time.deltaTime)));
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 
             wallCheckPoint = frontCheck.transform;
 
@@ -721,6 +731,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             rb2d.angularVelocity = 0f;
             rb2d.AddForce(new Vector2((-controlData.walljumpForceLeft * 1000f * 2.5f * Time.deltaTime), (controlData.m_JumpForce * controlData.walljumpAmplitudeLeft * 1000f * Time.deltaTime)));
             Debug.LogError("backjump");
+            transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
             wallCheckPoint = BackCheck.transform;
 
         }
