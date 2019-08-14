@@ -35,9 +35,11 @@ public class CharacterController2D : MonoBehaviour
     public bool m_wasCrouching = false;
     private bool m_wasAttacking = false;
     public PhotonView pv;
+    public Vector3 scale;
 
     private void Awake()
     {
+        scale = this.gameObject.transform.localScale;
         pv = GetComponent<PhotonView>();
 
         if (!pv.IsMine)
@@ -123,7 +125,7 @@ public class CharacterController2D : MonoBehaviour
         if(m_Grounded)
         {
             animator.SetBool("Jump", false);
-            transform.localScale = new Vector3(0.35f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = scale;
 
 
         }

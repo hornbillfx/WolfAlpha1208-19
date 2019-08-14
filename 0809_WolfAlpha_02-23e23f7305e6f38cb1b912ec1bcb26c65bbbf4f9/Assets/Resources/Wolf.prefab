@@ -801,6 +801,7 @@ MonoBehaviour:
   won: {fileID: 722993384}
   failed: {fileID: 1655574325}
   run: 0
+  Order: []
   ShurikenObj: {fileID: 91837068646702450}
   Ac: {fileID: 0}
   UI: {fileID: 0}
@@ -846,6 +847,7 @@ MonoBehaviour:
     type: 3}
   pv: {fileID: 8709200861402026714}
   SentBy: {fileID: 0}
+  sprit: {fileID: 0}
   power: 0
   collectedCharacter: []
 --- !u!114 &8709200861402026714

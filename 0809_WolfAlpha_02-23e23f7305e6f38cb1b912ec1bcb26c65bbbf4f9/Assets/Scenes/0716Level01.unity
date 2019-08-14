@@ -1273,7 +1273,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents: []
   viewIdField: 34
-  InstantiationId: 34
+  InstantiationId: 13
   isRuntimeInstantiated: 0
 --- !u!1 &171949478
 GameObject:
@@ -2975,7 +2975,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents: []
   viewIdField: 33
-  InstantiationId: 33
+  InstantiationId: 14
   isRuntimeInstantiated: 0
 --- !u!1 &399187299
 GameObject:
@@ -7362,7 +7362,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents: []
   viewIdField: 35
-  InstantiationId: 35
+  InstantiationId: 15
   isRuntimeInstantiated: 0
 --- !u!1 &1043823212
 GameObject:
@@ -7664,7 +7664,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents: []
   viewIdField: 31
-  InstantiationId: 31
+  InstantiationId: 12
   isRuntimeInstantiated: 0
 --- !u!1 &1094892483
 GameObject:
@@ -13018,8 +13018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab:
   - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
-  - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
-  - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
+  - {fileID: 7943261639308948840, guid: c6d9d9344495a984d9f2cb1104d753c8, type: 3}
   reach: 0
   ReloadBtn: {fileID: 1233881348}
   attackBtn: {fileID: 1805198303}
@@ -15494,7 +15493,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents: []
   viewIdField: 32
-  InstantiationId: 32
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!1 &2035672819
 GameObject:

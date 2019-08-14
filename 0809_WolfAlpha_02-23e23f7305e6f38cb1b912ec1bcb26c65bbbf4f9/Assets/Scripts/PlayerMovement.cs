@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
         //  Debug.LogError(manage.totalPlayer.Count);
         //Debug.LogError(manage.startCount+"startcount");
-        Debug.LogError(PhotonNetwork.CountOfPlayersInRooms);
+
         yield return new WaitForSeconds(0.5f);
         while (manage.startCount !=1 && manage.StartSec != 0) 
         {
@@ -277,7 +277,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             
             if (Input.touchCount == 0)
             {
-                if(ButtonCheck()==false)
+                
                     DOTouchCount = true;
             }
             frontCheck.transform.position = this.transform.position - FrontCheckOffset;
@@ -408,30 +408,27 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     }
     IEnumerator PlayerPunishedRoutine()
     {
-          runSpeed = 0;
+        //  runSpeed = 0;
        // runSpeed = controlData.TargetSpeed * 1.5f;
         NoRun = true;
-
+        StartCoroutine(CharacterStop(transform.position));
         yield return new WaitForSeconds(4f);
+
         NoRun = false;
        // runSpeed = controlData.TargetSpeed;
-       runSpeed = controlData.TargetSpeed;
+     //  runSpeed = controlData.TargetSpeed;
 
     }
-
-    bool ButtonCheck()
+    IEnumerator CharacterStop(Vector3 pos)
     {
-
-        for(int i=0;i<manage.ButtonClickCheck.Count;i++)
+        while(NoRun)
         {
-            if(manage.ButtonClickCheck[i].ButtonClicked)
-            {
-                return true;
-                
-            }
+            transform.position = pos;
+            yield return null;
         }
-        return false;
     }
+
+  
     private void FixedUpdate()
     {
         if(pv.IsMine)
@@ -494,12 +491,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                         {
                             if (DOTouchCount)
                             {
-                                Debug.LogError(ButtonCheck());
 
-                                if (ButtonCheck() == false)
-                                {
-                                    controller.Move(0 * Time.deltaTime, crouch, true);
-                                }
+
+                                
+                                        controller.Move(0 * Time.deltaTime, crouch, true);
+                                
                                 DOTouchCount = false;
                             }
                             // controller.Move(horizontalMove * Time.deltaTime, crouch, true);
@@ -538,11 +534,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                     NormalMove = true;
 
                                 }
-                                Debug.LogError(ButtonCheck());
-                                if (ButtonCheck() == false)
-                                {
-                                    controller.Move(0 * Time.deltaTime, crouch, true);
-                                }
+                               
+                                    
+                                        controller.Move(0 * Time.deltaTime, crouch, true);
+                                
 
 
                                 //  StartCoroutine(WallJumpRoutine());

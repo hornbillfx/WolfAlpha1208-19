@@ -96,9 +96,16 @@ public class UIHandler : MonoBehaviourPunCallbacks
             LevelSelectUI.gameObject.SetActive(true);
         }else
         {
+          
             character1.gameObject.SetActive(true);
+              character2.gameObject.SetActive(true);
+            character1.onClick.RemoveAllListeners();
+            character2.onClick.RemoveAllListeners();
+
+            character1.onClick.AddListener(() => char1());
+            character2.onClick.AddListener(() => char2());
         }
-        //  character2.gameObject.SetActive(true);
+
 
         //  StartCoroutine(waiting());
         //char1();
@@ -124,7 +131,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
         if (pv.IsMine)
         {
             //  selectedLevel = temp;
-            Debug.LogError("error");
+
 
             //   pv.RPC("levelSelectSync ", RpcTarget.AllBuffered, null);
 
@@ -158,6 +165,12 @@ public class UIHandler : MonoBehaviourPunCallbacks
         if(EnteredFirst)
         {
             character1.gameObject.SetActive(true);
+            character2.gameObject.SetActive(true);
+            character1.onClick.RemoveAllListeners();
+            character2.onClick.RemoveAllListeners();
+
+            character1.onClick.AddListener(() => char1());
+            character2.onClick.AddListener(() => char2());
 
         }
 
@@ -168,9 +181,9 @@ public class UIHandler : MonoBehaviourPunCallbacks
         character1.gameObject.SetActive(false);
 
         character2.gameObject.SetActive(false);
-        chosenCharacter = 1;
-       // instruction.text = chosenCharacter.ToString() ;
-       
+        chosenCharacter = 0;
+        // instruction.text = chosenCharacter.ToString() ;
+  
             pv.RPC("Incr", RpcTarget.AllBuffered, null);
 
         
@@ -197,8 +210,9 @@ public class UIHandler : MonoBehaviourPunCallbacks
     {
         character1.gameObject.SetActive(false);
         character2.gameObject.SetActive(false);
-        chosenCharacter = 2;
-      //  instruction.text = chosenCharacter.ToString() ;
+        chosenCharacter = 1;
+        Debug.LogError(chosenCharacter);
+        //  instruction.text = chosenCharacter.ToString() ;
         pv.RPC("Incr", RpcTarget.AllBuffered, null);
         wait_player.gameObject.SetActive(true);
     }
@@ -214,7 +228,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
             //   Waitfunc();
             //   PhotonNetwork.LoadLevel("0716Level01");
             PhotonNetwork.LoadLevel("0716Level01");
-            Debug.LogError("hi");
+
             
 
 
@@ -261,7 +275,8 @@ public class UIHandler : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-       
+        
+
         DontDestroyOnLoad(this.gameObject);
     }
 
