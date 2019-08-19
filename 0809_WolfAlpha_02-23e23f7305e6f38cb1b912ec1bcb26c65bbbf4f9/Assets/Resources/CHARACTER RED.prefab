@@ -1605,6 +1605,7 @@ MonoBehaviour:
   won: {fileID: 7942818569629645484}
   failed: {fileID: 7942818569506963306}
   run: 0
+  PlayerSPrite: {fileID: 0}
   Order:
   - {fileID: 8046831250216956464}
   - {fileID: 8047368705045837216}

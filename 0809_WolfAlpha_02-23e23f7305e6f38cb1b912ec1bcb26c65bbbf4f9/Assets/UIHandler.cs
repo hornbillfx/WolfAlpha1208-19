@@ -13,6 +13,8 @@ public class UIHandler : MonoBehaviourPunCallbacks
     public PhotonView pv;
     public Button character1;
     public Button character2;
+    public Button character3;
+    public Button character4;
     public int chosenCharacter;
     public GameObject wait_player;
     public int PlayerCount;
@@ -99,11 +101,17 @@ public class UIHandler : MonoBehaviourPunCallbacks
           
             character1.gameObject.SetActive(true);
               character2.gameObject.SetActive(true);
+            character3.gameObject.SetActive(true);
+            character4.gameObject.SetActive(true);
             character1.onClick.RemoveAllListeners();
             character2.onClick.RemoveAllListeners();
-
+            character3.onClick.RemoveAllListeners();
+            character4.onClick.RemoveAllListeners();
             character1.onClick.AddListener(() => char1());
             character2.onClick.AddListener(() => char2());
+            character3.onClick.AddListener(() => char3());
+            character4.onClick.AddListener(() => char4());
+
         }
 
 
@@ -166,12 +174,17 @@ public class UIHandler : MonoBehaviourPunCallbacks
         {
             character1.gameObject.SetActive(true);
             character2.gameObject.SetActive(true);
+            character3.gameObject.SetActive(true);
+            character4.gameObject.SetActive(true);
             character1.onClick.RemoveAllListeners();
             character2.onClick.RemoveAllListeners();
+            character3.onClick.RemoveAllListeners();
+            character4.onClick.RemoveAllListeners();
 
             character1.onClick.AddListener(() => char1());
             character2.onClick.AddListener(() => char2());
-
+            character3.onClick.AddListener(() => char3());
+            character4.onClick.AddListener(() => char4());
         }
 
     }
@@ -181,6 +194,8 @@ public class UIHandler : MonoBehaviourPunCallbacks
         character1.gameObject.SetActive(false);
 
         character2.gameObject.SetActive(false);
+        character3.gameObject.SetActive(false);
+        character4.gameObject.SetActive(false);
         chosenCharacter = 0;
         // instruction.text = chosenCharacter.ToString() ;
   
@@ -210,7 +225,38 @@ public class UIHandler : MonoBehaviourPunCallbacks
     {
         character1.gameObject.SetActive(false);
         character2.gameObject.SetActive(false);
+        character3.gameObject.SetActive(false);
+        character4.gameObject.SetActive(false);
+
         chosenCharacter = 1;
+        Debug.LogError(chosenCharacter);
+        //  instruction.text = chosenCharacter.ToString() ;
+        pv.RPC("Incr", RpcTarget.AllBuffered, null);
+        wait_player.gameObject.SetActive(true);
+    }
+    [PunRPC]
+    public void char3()
+    {
+        character1.gameObject.SetActive(false);
+        character2.gameObject.SetActive(false);
+        character3.gameObject.SetActive(false);
+        character4.gameObject.SetActive(false);
+
+        chosenCharacter = 2;
+        Debug.LogError(chosenCharacter);
+        //  instruction.text = chosenCharacter.ToString() ;
+        pv.RPC("Incr", RpcTarget.AllBuffered, null);
+        wait_player.gameObject.SetActive(true);
+    }
+    [PunRPC]
+    public void char4()
+    {
+        character1.gameObject.SetActive(false);
+        character2.gameObject.SetActive(false);
+        character3.gameObject.SetActive(false);
+        character4.gameObject.SetActive(false);
+
+        chosenCharacter = 3;
         Debug.LogError(chosenCharacter);
         //  instruction.text = chosenCharacter.ToString() ;
         pv.RPC("Incr", RpcTarget.AllBuffered, null);

@@ -17,9 +17,13 @@ public class Manager : MonoBehaviourPun
     public List<GameObject> col = new List<GameObject>();
     public PhotonView pv;
     public List<GameObject> totalPlayer = new List<GameObject>();
+    public List<int> totalPlayerCharacterNo = new List<int>();
+
     public List<float> PlayerDist = new List<float>();
     public List<Slider> PlayerDistUI = new List<Slider>();
     public List<Image> PlayerDistBG = new List<Image>();
+    public List<Sprite> PlayerDistBGCharacter = new List<Sprite>();
+
     public List<Color> PlayerDistBGColor = new List<Color>();
     public List<GameObject> levels = new List<GameObject>();
 

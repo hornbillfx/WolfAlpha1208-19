@@ -22,16 +22,18 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     public GameObject won;
     public GameObject failed;
     public bool run;
+    public Sprite PlayerSPrite;
 
     public List<Anima2D.SpriteMeshInstance> Order = new List<Anima2D.SpriteMeshInstance>();
-
-    private void Start()
+  
+        private void Start()
     {
         PhotonNetwork.SendRate = 20;
         PhotonNetwork.SerializationRate = 15;
         manage = GameObject.Find("Manager").GetComponent<Manager>();
         controlData = GameObject.Find("ControlData").GetComponent<ControlData>();
-
+     
+      //  manage.totalPlayerCharacterNo.Add(manage.UI.chosenCharacter);
         //   t1 = GameObject.Find("t1").GetComponent<Text>();
 
         //while(PhotonNetwork.CountOfPlayers!=2)
@@ -56,6 +58,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             BackCheckOffset = this.transform.position - BackCheck.transform.position;
            // GetComponent<SpriteRenderer>().sortingOrder = 2;
             pv.RPC("PlayerAdd", RpcTarget.AllBuffered, null);
+          //  pv.RPC("PlayerCharacterSend", RpcTarget.AllBuffered, null);
+
             CurrenPlayerDenote.gameObject.SetActive(true);
             MinForceSet();
             manage.LocalPlayer = this.gameObject;
@@ -71,6 +75,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
             CurrenPlayerDenote.gameObject.SetActive(false);
 
+        }
+        for(int i=0;i<manage.totalPlayer.Count;i++)
+        {
+            manage.PlayerDistBG[i].sprite = manage.totalPlayer[i].GetComponent<PlayerMovement>().PlayerSPrite;
         }
     }
     public GameObject ShurikenObj;
@@ -135,6 +143,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         {
             
             manage.totalPlayer.Add(this.gameObject);
+          
             //if (manage.totalPlayer.Count == 1)
             //{
             //    manage.t1.text = "ssss";
@@ -238,8 +247,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 float dist = Vector3.Distance(this.transform.position, manage.finish.transform.position);
                 manage.PlayerDist[i] = 1 - (dist / manage.FinalDist);
                 manage.PlayerDistUI[i].gameObject.SetActive(true);
-
-                manage.PlayerDistUI[i].value = 1 - (dist / manage.FinalDist);
+               manage.PlayerDistUI[i].value = 1 - (dist / manage.FinalDist);
                 manage.PlayerDistBG[i].color = new Color(255, 208,0,1);
                 // manage.t1.text = manage.PlayerDist[i].ToString();
 
