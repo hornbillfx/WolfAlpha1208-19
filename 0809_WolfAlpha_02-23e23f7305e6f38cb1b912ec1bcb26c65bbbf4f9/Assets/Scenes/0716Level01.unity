@@ -13017,7 +13017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab:
-  - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
+  - {fileID: 1106435403584450, guid: c4fc8182614ce8f4c961030f29e54f9b, type: 3}
   - {fileID: 7943261639308948840, guid: c6d9d9344495a984d9f2cb1104d753c8, type: 3}
   reach: 0
   ReloadBtn: {fileID: 1233881348}
@@ -13056,9 +13056,6 @@ MonoBehaviour:
   ShurikenBtn: {fileID: 2145138393}
   ShurikenPrefab: {fileID: 5192551538910195447, guid: 140494d1f92034af99eb42f4b75b5a20,
     type: 3}
-  ButtonClickCheck:
-  - {fileID: 1805198307}
-  - {fileID: 2145138390}
   FinalDist: 0
   finish: {fileID: 1428335605}
   t1: {fileID: 1395394324}
