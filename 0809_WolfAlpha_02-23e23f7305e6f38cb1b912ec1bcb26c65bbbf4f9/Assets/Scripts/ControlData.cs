@@ -15,8 +15,7 @@ public class ControlData : MonoBehaviour
     public float walljumpForceLeft;
     public float WallSlideGravity;
     public AudioControl Ac;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {

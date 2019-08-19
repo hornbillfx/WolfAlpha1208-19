@@ -495,6 +495,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
                                 
                                         controller.Move(0 * Time.deltaTime, crouch, true);
+                                Debug.LogError("Jump");
                                 
                                 DOTouchCount = false;
                             }
@@ -537,7 +538,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                
                                     
                                         controller.Move(0 * Time.deltaTime, crouch, true);
-                                
+                                Debug.LogError("Jump");
+
 
 
                                 //  StartCoroutine(WallJumpRoutine());
@@ -575,7 +577,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                 {
                                     // if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
                                     //   this.GetComponent<SpriteRenderer>().flipX = false;
-                                    print("walljump1" + res[0]);
+                               
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
 
                                     StartCoroutine(WallJumpRoutine());
@@ -599,7 +601,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                                     StartCoroutine(Walljumpactivate(false, temp));
                                     StartCoroutine(WallJumpRoutine());
 
-                                    print("walljump2" + res[0]);
+                                    
                                     WallJumpActiveBool = true;
                                 }
 
@@ -738,7 +740,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     {
 
         //  Debug.LogError(temp.enabled);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f);  //0.2f
         if (temp.GetComponent<BoxCollider2D>())
         {
             temp.enabled = true;
