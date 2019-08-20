@@ -55,5 +55,9 @@ MonoBehaviour:
   - PlayerCharacterSend
   - char3
   - char4
+  - NameSet
+  - Namefunc
+  - NameSetRPC
+  - ScoreShow
   DisableAutoOpenWizard: 1
   ShowSettings: 1

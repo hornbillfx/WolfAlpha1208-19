@@ -741,6 +741,7 @@ MonoBehaviour:
   run: 0
   PlayerSPrite: {fileID: 7841213981274837522, guid: eaa711e6ed6b95741b4bf7bda4b5d8fa,
     type: 3}
+  username: 
   Order:
   - {fileID: 114497786701089082}
   - {fileID: 114025870511519836}
@@ -765,6 +766,7 @@ MonoBehaviour:
   ShurikenObj: {fileID: 3244566379798920789}
   Ac: {fileID: 0}
   UI: {fileID: 0}
+  SecStart: 0
   MinRunForce: 0
   FrontCheckOffset: {x: 0, y: 0, z: 0}
   BackCheckOffset: {x: 0, y: 0, z: 0}

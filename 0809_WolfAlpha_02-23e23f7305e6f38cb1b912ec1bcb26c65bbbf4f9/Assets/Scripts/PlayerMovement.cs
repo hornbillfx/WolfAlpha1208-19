@@ -23,15 +23,20 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     public GameObject failed;
     public bool run;
     public Sprite PlayerSPrite;
+    public string username;
+    public string Otherusername;
+
 
     public List<Anima2D.SpriteMeshInstance> Order = new List<Anima2D.SpriteMeshInstance>();
   
         private void Start()
     {
+        
         PhotonNetwork.SendRate = 20;
         PhotonNetwork.SerializationRate = 15;
         manage = GameObject.Find("Manager").GetComponent<Manager>();
         controlData = GameObject.Find("ControlData").GetComponent<ControlData>();
+      //  username = controlData.userName;
      
       //  manage.totalPlayerCharacterNo.Add(manage.UI.chosenCharacter);
         //   t1 = GameObject.Find("t1").GetComponent<Text>();
@@ -45,6 +50,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     //   runSpeed = 0;
         //  pv.RPC("WaitForPlayerFunc", RpcTarget.AllBuffered, null);
         WaitForPlayerFunc();
+       username= manage.userNameClass.userName;
         manage.ReloadBtn.onClick.AddListener(() => TowardsLobby());
         if (pv.IsMine)
         {
@@ -52,13 +58,18 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             {
                 Order[i].sortingOrder += 1;
             }
+            manage.t2.text = manage.userNameClass.userName;
 
             manage.startBtn.onClick.AddListener(() => startcountFunc());
             FrontCheckOffset = this.transform.position - frontCheck.transform.position;
             BackCheckOffset = this.transform.position - BackCheck.transform.position;
            // GetComponent<SpriteRenderer>().sortingOrder = 2;
             pv.RPC("PlayerAdd", RpcTarget.AllBuffered, null);
-          //  pv.RPC("PlayerCharacterSend", RpcTarget.AllBuffered, null);
+            //  pv.RPC("NameSet", RpcTarget.AllBuffered, null);
+           
+            // manage.totalPlayerName.Add(username);
+
+            //  pv.RPC("PlayerCharacterSend", RpcTarget.AllBuffered, null);
 
             CurrenPlayerDenote.gameObject.SetActive(true);
             MinForceSet();
@@ -130,6 +141,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     {
         manage.startCount += 1;
     }
+   
     [PunRPC]
     public void PlayerAdd()
     {
@@ -143,11 +155,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         {
             
             manage.totalPlayer.Add(this.gameObject);
+           
+           
+            
           
-            //if (manage.totalPlayer.Count == 1)
-            //{
-            //    manage.t1.text = "ssss";
-            //}
         }
 
     }
@@ -212,7 +223,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         {
             manage.TrafficLight[i].gameObject.SetActive(false);
         }
+        secondTaken = 0;
+        SecStart = true;
     }
+    public float secondTaken;
+    public bool SecStart;
     public float MinRunForce;
     public Vector3 FrontCheckOffset;
     public Vector3 BackCheckOffset;
@@ -279,7 +294,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (pv.IsMine)
         {
-            
+            if(SecStart)
+            {
+                secondTaken += Time.deltaTime;
+            }
                     pv.RPC("DistanceSync", RpcTarget.AllBuffered, null);
                 
             
@@ -775,6 +793,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     }
     public Vector3 winpos;
     [SerializeField] private float wallCheckWi, wallCheckHi;
+    public bool Finished;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -791,6 +810,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             }
             if (collision.tag == "Finish")
             {
+                SecStart = false;
+                Finished = true;
                 if (manage.reach < 10)
                 {
                     won.gameObject.SetActive(true);
@@ -821,6 +842,21 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                    
 
                 }
+                int count = 0;
+                for (int i=0;i<manage.totalPlayer.Count;i++)
+                {
+                   
+                    if(manage.totalPlayer[i].GetComponent<PlayerMovement>().Finished==true)
+                    {
+                        count += 1;
+                    }
+
+                }
+                if(manage.UI.PlayerCount==count)
+                {
+                    pv.RPC("ScoreShow", RpcTarget.AllBuffered, null);
+
+                }
 
 
             }
@@ -834,14 +870,50 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         }
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    [PunRPC]
+    public void ScoreShow()
+    {
+        manage.ScoreCardMenu.gameObject.SetActive(true);
+        for (int i = 0; i < manage.totalPlayer.Count; i++)
+        {
+            for (int j = i+1; j < manage.totalPlayer.Count; j++)
+            {
+                if (manage.totalPlayer[i].GetComponent<PlayerMovement>().secondTaken > manage.totalPlayer[j].GetComponent<PlayerMovement>().secondTaken)
+                {
+                    GameObject temp = manage.totalPlayer[j];
+                    manage.totalPlayer[j] = manage.totalPlayer[i];
+                    manage.totalPlayer[i] = temp;
+
+                }
+            }
+              
+        }
+
+            for (int i=0;i<manage.totalPlayer.Count;i++)
+        {
+          manage.ScoreCard[i].transform.GetChild(0).GetComponent<Text>().text = manage.totalPlayer[i].GetComponent<PlayerMovement>().username.ToString();
+            manage.ScoreCard[i].transform.GetChild(1).GetComponent<Text>().text = manage.totalPlayer[i].GetComponent<PlayerMovement>().secondTaken.ToString();
+        }
+    }
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if(stream.IsWriting)
         {
             stream.SendNext(transform.position);
-        }else if(stream.IsReading)
+            stream.SendNext(username);
+            stream.SendNext(Finished);
+            stream.SendNext(secondTaken);
+
+
+        }
+        else if(stream.IsReading)
         {
            movement= (Vector3)stream.ReceiveNext();
+            username = (string)stream.ReceiveNext();
+            Finished = (bool)stream.ReceiveNext();
+            secondTaken = (float)stream.ReceiveNext();
+
         }
     }
 

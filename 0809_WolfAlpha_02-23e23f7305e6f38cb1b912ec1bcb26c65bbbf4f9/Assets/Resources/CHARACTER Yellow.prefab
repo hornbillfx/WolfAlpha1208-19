@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteMesh: {fileID: 11400000, guid: 615fb2d3b7d3d9d4cab282f14ed2ab22, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.99862754, b: 0, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 0
@@ -1418,7 +1418,7 @@ GameObject:
   - component: {fileID: 4116971271230735398}
   - component: {fileID: 8610870244250703118}
   m_Layer: 8
-  m_Name: CHARACTER PINK
+  m_Name: CHARACTER Yellow
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1667,7 +1667,7 @@ MonoBehaviour:
   - {fileID: 8610870244250703118}
   - {fileID: 7942818567589923321}
   viewIdField: 0
-  InstantiationId: 2
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &7942818567589923322
 MonoBehaviour:

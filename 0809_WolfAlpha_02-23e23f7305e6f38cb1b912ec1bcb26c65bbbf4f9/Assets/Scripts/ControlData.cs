@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class ControlData : MonoBehaviour
+public class ControlData : MonoBehaviourPun
 {
 
     public float BaseSpeed ;
@@ -16,9 +17,12 @@ public class ControlData : MonoBehaviour
     public float WallSlideGravity;
     public AudioControl Ac;
     
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -27,8 +31,10 @@ public class ControlData : MonoBehaviour
     {
         
     }
+   
 
-    public void Multiplayer()
+    
+        public void Multiplayer()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("mainMenu");
     }

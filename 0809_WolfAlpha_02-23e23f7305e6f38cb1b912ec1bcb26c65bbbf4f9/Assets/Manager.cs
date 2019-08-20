@@ -17,6 +17,8 @@ public class Manager : MonoBehaviourPun
     public List<GameObject> col = new List<GameObject>();
     public PhotonView pv;
     public List<GameObject> totalPlayer = new List<GameObject>();
+    public List<string> totalPlayerName = new List<string>();
+
     public List<int> totalPlayerCharacterNo = new List<int>();
 
     public List<float> PlayerDist = new List<float>();
@@ -29,6 +31,7 @@ public class Manager : MonoBehaviourPun
 
     public Button ShurikenBtn;
     public GameObject ShurikenPrefab;
+    public UserNameSync userNameClass;
 
 
 
@@ -67,12 +70,15 @@ public class Manager : MonoBehaviourPun
     public GameObject PlayerReady;
 
     public int StartSec = 30;
+    // public float secondTaken = 0f;
 
     //public void IncreaseRatefunc(int val)
     //{
     //    IncreaseRateSpeed = val;
     //}
     // Start is called before the first frame update
+    public GameObject ScoreCardMenu;
+    public List<GameObject> ScoreCard = new List<GameObject>();
 
     IEnumerator StartSecRoutine()
     {
@@ -91,11 +97,15 @@ public class Manager : MonoBehaviourPun
         t1.text = StartSec.ToString();
     }
     public UIHandler UI;
+    public ControlData controlData;
 
     IEnumerator Start()
     {
         manage = this;
+        controlData = GameObject.Find("ControlData").GetComponent<ControlData>();
+
         UI = GameObject.Find("Launcher").GetComponent<UIHandler>();
+        userNameClass= GameObject.Find("username").GetComponent<UserNameSync>();
 
         levels[UI.selectedLevel].gameObject.SetActive(true);
 
