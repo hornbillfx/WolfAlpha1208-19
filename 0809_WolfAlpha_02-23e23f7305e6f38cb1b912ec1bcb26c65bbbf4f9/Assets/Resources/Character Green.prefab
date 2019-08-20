@@ -742,6 +742,7 @@ MonoBehaviour:
   PlayerSPrite: {fileID: 7841213981274837522, guid: eaa711e6ed6b95741b4bf7bda4b5d8fa,
     type: 3}
   username: 
+  Otherusername: 
   Order:
   - {fileID: 114497786701089082}
   - {fileID: 114025870511519836}
@@ -766,6 +767,7 @@ MonoBehaviour:
   ShurikenObj: {fileID: 3244566379798920789}
   Ac: {fileID: 0}
   UI: {fileID: 0}
+  secondTaken: 0
   SecStart: 0
   MinRunForce: 0
   FrontCheckOffset: {x: 0, y: 0, z: 0}
@@ -789,6 +791,7 @@ MonoBehaviour:
   winpos: {x: 0, y: -2, z: 0}
   wallCheckWi: 0.15
   wallCheckHi: 1.2
+  Finished: 0
 --- !u!1 &1132031330268552
 GameObject:
   m_ObjectHideFlags: 0

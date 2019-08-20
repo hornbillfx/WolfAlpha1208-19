@@ -10,7 +10,7 @@ public class launch : MonoBehaviourPunCallbacks
     public GameObject DisconnectedScreen;
     public void Onclick_ConnectBtn()
     {
-        print("s");
+
         PhotonNetwork.ConnectUsingSettings();
         if (PhotonNetwork.IsConnected)
         {
@@ -35,7 +35,7 @@ public class launch : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-        print("joined");
+
     }
 
     public override void OnDisconnected(DisconnectCause cause)

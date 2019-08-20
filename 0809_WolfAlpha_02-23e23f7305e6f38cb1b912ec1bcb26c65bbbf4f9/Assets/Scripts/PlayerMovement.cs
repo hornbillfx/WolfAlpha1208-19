@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     public bool run;
     public Sprite PlayerSPrite;
     public string username;
-    public string Otherusername;
+ 
 
 
     public List<Anima2D.SpriteMeshInstance> Order = new List<Anima2D.SpriteMeshInstance>();
@@ -459,10 +459,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     {
         if(pv.IsMine)
         {
-      //res = Physics2D.OverlapCircleAll(wallCheckPoint.transform.position, 0.15f, WallLayer);
             res = Physics2D.OverlapBoxAll(wallCheckPoint.position, new Vector2(wallCheckWi, wallCheckHi), 0.15f, WallLayer);
-
-
             if (GetComponent<CharacterController2D>().m_Grounded == false && res.Length == 0)
             {
                 if (NormalMove == false)
@@ -489,7 +486,6 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             {
                 if (straigtJump)
                 {
-                    //  print("ssss");
                     StartCoroutine(WallJumpRoutine());
 
                     straigtJump = false;
@@ -502,11 +498,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 {
                     straigtJump = true;
                 }
-                //if (this.GetComponent<SpriteRenderer>().flipX)
-                //{
-                //    this.GetComponent<SpriteRenderer>().flipX = false;
-
-                //}
+                
                 if (res.Length == 0)
                 {
                     animator.SetBool("wallslide", false);
@@ -517,15 +509,9 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                         {
                             if (DOTouchCount)
                             {
-
-
-                                
-                                        controller.Move(0 * Time.deltaTime, crouch, true);
-                                Debug.LogError("Jump");
-                                
+                                controller.Move(0 * Time.deltaTime, crouch, true);
                                 DOTouchCount = false;
                             }
-                            // controller.Move(horizontalMove * Time.deltaTime, crouch, true);
                         }
 
                     }
@@ -535,7 +521,6 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                         {
                             wallCheckPoint = frontCheck.transform;
                         }
-                        //     controller.Move(horizontalMove * Time.deltaTime, crouch, false);
                         if (NormalMove == true)
                         {
                             NormalMove = false;
@@ -555,21 +540,11 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                             {
                                 if (NormalMove == false)
                                 {
-                                    print("as");
-
                                     runSpeed = controlData.BaseSpeed - 1;
                                     NormalMove = true;
 
                                 }
-                               
-                                    
                                         controller.Move(0 * Time.deltaTime, crouch, true);
-                                Debug.LogError("Jump");
-
-
-
-                                //  StartCoroutine(WallJumpRoutine());
-                                print("jump");
                                 DOTouchCount = false;
                             }
                         }
@@ -582,7 +557,6 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             {
                 if (NormalMove == false)
                 {
-                    print("as");
                     runSpeed = controlData.BaseSpeed - 1;
                     NormalMove = true;
 
@@ -601,13 +575,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
                                 if (WallJumpActiveBool == false)
                                 {
-                                    // if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
-                                    //   this.GetComponent<SpriteRenderer>().flipX = false;
-                               
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
-
                                     StartCoroutine(WallJumpRoutine());
-
                                     StartCoroutine(Walljumpactivate(true, temp));
                                     WallJumpActiveBool = true;
 
@@ -618,16 +587,9 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                             {
                                 if (WallJumpActiveBool == false)
                                 {
-                                    //   if (res[0].GetComponent<WallDirectionCheck>().Flip == false)
-                                    //  this.GetComponent<SpriteRenderer>().flipX = true;
-
                                     BoxCollider2D temp = res[0].GetComponent<BoxCollider2D>();
-
-
                                     StartCoroutine(Walljumpactivate(false, temp));
                                     StartCoroutine(WallJumpRoutine());
-
-                                    
                                     WallJumpActiveBool = true;
                                 }
 
@@ -717,11 +679,6 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
     }
     [PunRPC]
-    public void Attacked()
-    {
-
-    }
-    [PunRPC]
     public void Reach()
     {
         manage.reach = 10;
@@ -738,7 +695,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         if (front)
         {
             transform.position = new Vector2(transform.position.x + 0.5f, transform.position.y);
-            Debug.LogError("frontjump");
+
             rb2d.velocity = new Vector2(0, 0);
             rb2d.angularVelocity = 0f;
             rb2d.AddForce(new Vector2((controlData.walljumpForceLeft * 2.5f * 1000f * Time.deltaTime), (controlData.m_JumpForce * controlData.walljumpAmplitudeLeft * 1000f * Time.deltaTime)));
@@ -753,7 +710,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             rb2d.velocity = new Vector2(0, 0);
             rb2d.angularVelocity = 0f;
             rb2d.AddForce(new Vector2((-controlData.walljumpForceLeft * 1000f * 2.5f * Time.deltaTime), (controlData.m_JumpForce * controlData.walljumpAmplitudeLeft * 1000f * Time.deltaTime)));
-            Debug.LogError("backjump");
+
             transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
             wallCheckPoint = BackCheck.transform;
 
@@ -801,13 +758,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
        
         if (pv.IsMine)
         {
-            if (collision.tag == "Shuriken")
-            {
-
-           //     GetComponent<PowerUp>().attackButton.gameObject.SetActive(true);
-            //    GetComponent<PowerUp>().attackButton.GetComponent<Button>().enabled = true;
-            //    GetComponent<PowerUp>().attackButton.GetComponent<Image>().enabled = true;
-            }
+           
             if (collision.tag == "Finish")
             {
                 SecStart = false;
@@ -822,7 +773,6 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                     //    manage.won.gameObject.SetActive(true);
 
                     pv.RPC("Reach", RpcTarget.AllBuffered, null);
-                    print("won" + manage.reach);
                     Destroy(failed);
                     return;
                 }
@@ -836,8 +786,6 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
 
                         run = true;
                         winpos = transform.position;
-
-                        print("fail" + manage.reach);
                     }
                    
 
@@ -904,16 +852,13 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             stream.SendNext(username);
             stream.SendNext(Finished);
             stream.SendNext(secondTaken);
-
-
         }
         else if(stream.IsReading)
         {
            movement= (Vector3)stream.ReceiveNext();
-            username = (string)stream.ReceiveNext();
-            Finished = (bool)stream.ReceiveNext();
-            secondTaken = (float)stream.ReceiveNext();
-
+           username = (string)stream.ReceiveNext();
+           Finished = (bool)stream.ReceiveNext();
+           secondTaken = (float)stream.ReceiveNext();
         }
     }
 

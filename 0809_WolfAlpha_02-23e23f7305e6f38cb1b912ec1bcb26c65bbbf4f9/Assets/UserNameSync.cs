@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class UserNameSync : MonoBehaviour,IPunObservable
 {
     public PhotonView pv;
     public string userName;
+    public Button StartBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,14 @@ public class UserNameSync : MonoBehaviour,IPunObservable
     }
     public void SetUserName(string temp)
     {
+        if (temp.Length != 0)
+        {
+            StartBtn.interactable = true;
+        }else
+        {
+            StartBtn.interactable = false;
+
+        }
         userName = temp;
         //  pv.RPC("Namefunc", RpcTarget.AllBuffered, temp);
 

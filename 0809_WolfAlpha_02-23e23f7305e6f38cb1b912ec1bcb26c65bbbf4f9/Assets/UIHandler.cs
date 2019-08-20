@@ -57,7 +57,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Controller()
     {
-        print("hello");
+
        
         PlayerCount += 1;
      //   StartCoroutine(ControllerRoutine());
@@ -229,7 +229,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
         character4.gameObject.SetActive(false);
 
         chosenCharacter = 1;
-        Debug.LogError(chosenCharacter);
+
         //  instruction.text = chosenCharacter.ToString() ;
         pv.RPC("Incr", RpcTarget.AllBuffered, null);
         wait_player.gameObject.SetActive(true);
@@ -268,21 +268,12 @@ public class UIHandler : MonoBehaviourPunCallbacks
     public void Incr()
     {
         i++;
-     //   instruction.text = i.ToString();
         if(i==PlayerCount)
         {
-            //   Waitfunc();
-            //   PhotonNetwork.LoadLevel("0716Level01");
             PhotonNetwork.LoadLevel("0716Level01");
-
-            
-
-
         }
         else
         {
-        //    instruction.text = "\nGame Starts In Few Minutes\n Room Name-"+createRoom.text;
-        
         }
         
     }
@@ -317,7 +308,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        print("RoomFailed"+returnCode+"Message "+message);
+       
     }
     void Start()
     {
