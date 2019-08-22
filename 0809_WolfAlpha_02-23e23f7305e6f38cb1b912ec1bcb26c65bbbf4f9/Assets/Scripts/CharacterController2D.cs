@@ -102,6 +102,13 @@ public class CharacterController2D : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
+
+        //if (m_Rigidbody2D.velocity.y < Manager.manage.controlData.terminalVelocity)
+        //{
+        //    //Debug.Log(m_Rigidbody2D.velocity.y);
+        //    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, Manager.manage.terminalVelocity);
+
+        //}
     }
 
 

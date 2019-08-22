@@ -36,9 +36,12 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         PhotonNetwork.SerializationRate = 15;
         manage = GameObject.Find("Manager").GetComponent<Manager>();
         controlData = GameObject.Find("ControlData").GetComponent<ControlData>();
-      //  username = controlData.userName;
-     
-      //  manage.totalPlayerCharacterNo.Add(manage.UI.chosenCharacter);
+        Debug.LogError(GetComponent<Rigidbody2D>().gravityScale);
+       rb2d.gravityScale = controlData.playerGravityScale;
+
+        //  username = controlData.userName;
+
+        //  manage.totalPlayerCharacterNo.Add(manage.UI.chosenCharacter);
         //   t1 = GameObject.Find("t1").GetComponent<Text>();
 
         //while(PhotonNetwork.CountOfPlayers!=2)
@@ -54,7 +57,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         manage.ReloadBtn.onClick.AddListener(() => TowardsLobby());
         if (pv.IsMine)
         {
-            for(int i=0;i<Order.Count;i++)
+            for (int i=0;i<Order.Count;i++)
             {
                 Order[i].sortingOrder += 1;
             }
@@ -196,6 +199,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         {
             yield return null;
         }
+
+      
      
 
         Ac.GetComponent<AudioSource>().clip = Ac.BG_Game;
@@ -215,6 +220,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         manage.TrafficLight[2].gameObject.SetActive(true);
        
         yield return new WaitForSeconds(1f);
+        while(manage.FirstTouch!=manage.UI.PlayerCount)
+        {
+            yield return null;
+        }
         run = false;
           runSpeed = 10;
         GetComponent<Animator>().SetBool("Idle", false);
@@ -286,6 +295,12 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             }
         }
     }
+    public bool FirstTouchGameStart;
+    [PunRPC]
+    public void FirstTouchSync()
+    {
+        manage.FirstTouch += 1;
+    }
         // Update is called once per frame
         void Update()
     {
@@ -294,7 +309,8 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (pv.IsMine)
         {
-            if(SecStart)
+            rb2d.gravityScale = controlData.playerGravityScale;
+            if (SecStart)
             {
                 secondTaken += Time.deltaTime;
             }
@@ -357,6 +373,15 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             }
         if(Input.GetMouseButton(0))
         {
+            if (pv.IsMine)
+            {
+                if (FirstTouchGameStart == false)
+                {
+                    pv.RPC("FirstTouchSync", RpcTarget.AllBuffered, null);
+
+                    FirstTouchGameStart = true;
+                }
+            }
          //   t1.text = Input.mousePosition.x.ToString();
             //if(Input.mousePosition.x>150f && Input.mousePosition.x < 600f)
             //{
@@ -609,7 +634,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                     //  print(GetComponent<CharacterController2D>().m_Grounded);
                     animator.SetBool("wallslide", true);
                     rb2d.velocity = new Vector2(rb2d.velocity.x, -controlData.WallSlideGravity);
-                    //  rb2d.velocity = new Vector2(rb2d.velocity.x, GetComponent<CharacterController2D>().terminalVelocity);
+                   //   rb2d.velocity = new Vector2(rb2d.velocity.x, controlData.terminalVelocity);
                 }
                 else
                 {
@@ -660,10 +685,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
                 // runSpeed = 0;
                 transform.position = winpos;
             }
-            //if (GetComponent<Rigidbody2D>().velocity.y < manage.terminalVelocity)
+            //if (GetComponent<Rigidbody2D>().velocity.y < controlData.terminalVelocity)
             //{
             //    //Debug.Log(m_Rigidbody2D.velocity.y);
-            //    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, manage.terminalVelocity);
+            //    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, controlData.terminalVelocity);
 
             //}
 
@@ -852,6 +877,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
             stream.SendNext(username);
             stream.SendNext(Finished);
             stream.SendNext(secondTaken);
+            
         }
         else if(stream.IsReading)
         {
@@ -859,6 +885,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
            username = (string)stream.ReceiveNext();
            Finished = (bool)stream.ReceiveNext();
            secondTaken = (float)stream.ReceiveNext();
+           
         }
     }
 

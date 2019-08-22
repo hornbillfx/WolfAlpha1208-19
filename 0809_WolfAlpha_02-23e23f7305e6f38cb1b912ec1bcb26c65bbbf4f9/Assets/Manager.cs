@@ -34,7 +34,7 @@ public class Manager : MonoBehaviourPun
     public UserNameSync userNameClass;
 
 
-
+    public int FirstTouch=0;
     public float FinalDist;
     public GameObject finish;
     //  public List<float> Distances = new List<float>();
@@ -173,10 +173,10 @@ public class Manager : MonoBehaviourPun
         }
         if (PlayerPrefs.GetFloat("playerGravityScale") == 0.0f)
         {
-            PlayerPrefs.SetFloat("playerGravityScale", 0.8f);
-            playerGravityScaleTxt.text = "0.8";
+            PlayerPrefs.SetFloat("playerGravityScale", 5f);
+            playerGravityScaleTxt.text = "5";
             //GetComponent<Rigidbody2D>().gravityScale = 0.8f;
-            LocalPlayer.GetComponent<Rigidbody2D>().gravityScale = 0.8f;
+            LocalPlayer.GetComponent<Rigidbody2D>().gravityScale = 5f;
 
 
         }

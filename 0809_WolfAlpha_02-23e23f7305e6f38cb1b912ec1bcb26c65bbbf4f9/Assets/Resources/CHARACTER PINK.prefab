@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8027675365490615246}
-  m_JumpForce: 300
+  m_JumpForce: 400
   m_CrouchSpeed: 0.8
   m_JumpSpeed: 0.36
   m_MovementSmoothing: 0.05
@@ -1607,7 +1607,6 @@ MonoBehaviour:
   run: 0
   PlayerSPrite: {fileID: 21300000, guid: 2fadf3e19ff7c5f4ba674acfef0326de, type: 3}
   username: 
-  Otherusername: 
   Order:
   - {fileID: 8046831250216956464}
   - {fileID: 8047368705045837216}
@@ -1624,6 +1623,7 @@ MonoBehaviour:
   MinRunForce: 0
   FrontCheckOffset: {x: 0, y: 0, z: 0}
   BackCheckOffset: {x: 0, y: 0, z: 0}
+  FirstTouchGameStart: 0
   res: []
   wallCheckPoint: {fileID: 7942818569448612684}
   WallLayer:
