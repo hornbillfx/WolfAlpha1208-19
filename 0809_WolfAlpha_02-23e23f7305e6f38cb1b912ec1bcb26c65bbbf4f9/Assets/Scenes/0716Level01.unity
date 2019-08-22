@@ -14595,7 +14595,7 @@ MonoBehaviour:
   - {fileID: 1106435403584450, guid: c4fc8182614ce8f4c961030f29e54f9b, type: 3}
   - {fileID: 7943261639308948840, guid: a5c674978bc2cbe41a7299a9b0d8b516, type: 3}
   - {fileID: 1764862123985470, guid: 281e2d00487cf5146a375ef3c1101958, type: 3}
-  - {fileID: 7383310891071702208, guid: 2b3ae602b3490e44cad4ba2d65279733, type: 3}
+  - {fileID: 1974325174946312, guid: 45325b0b4e964c54498e45bb2aaec2a0, type: 3}
   reach: 0
   ReloadBtn: {fileID: 1233881348}
   attackBtn: {fileID: 1805198303}

@@ -47,7 +47,7 @@ public class ControlData : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-   //     PlayerPrefs.DeleteAll();
+      //  PlayerPrefs.DeleteAll();
         DontDestroyOnLoad(this.gameObject);
         if (PlayerPrefs.GetFloat("BaseSpeed") == 0.0f)
         {
@@ -92,8 +92,10 @@ public class ControlData : MonoBehaviourPun
 
         if (PlayerPrefs.GetFloat("m_JumpForce") == 0.0f)
         {
-            PlayerPrefs.SetFloat("m_JumpForce", 30f);
-            m_JumpForce = 30;
+            PlayerPrefs.SetFloat("m_JumpForce", 25F);
+            m_JumpForce = 25;
+            m_JumpForceTxt.text = m_JumpForce.ToString();
+
         }
         else
         {
@@ -105,10 +107,11 @@ public class ControlData : MonoBehaviourPun
 
         if (PlayerPrefs.GetFloat("playerGravityScale") == 0.0f)
         {
-            PlayerPrefs.SetFloat("playerGravityScale", 20f);
-            playerGravityScaleTxt.text = "20";
+            PlayerPrefs.SetFloat("playerGravityScale", 5f);
+       
             //  GetComponent<Rigidbody2D>().gravityScale = 20f;
-            playerGravityScale = 20f;
+            playerGravityScale = 5f;
+            playerGravityScaleTxt.text = "5";
 
 
         }

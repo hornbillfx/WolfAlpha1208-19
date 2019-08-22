@@ -220,10 +220,10 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         manage.TrafficLight[2].gameObject.SetActive(true);
        
         yield return new WaitForSeconds(1f);
-        while(manage.FirstTouch!=manage.UI.PlayerCount)
-        {
-            yield return null;
-        }
+        //while(manage.FirstTouch!=manage.UI.PlayerCount)
+        //{
+        //    yield return null;
+        //}
         run = false;
           runSpeed = 10;
         GetComponent<Animator>().SetBool("Idle", false);
@@ -299,7 +299,7 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
     [PunRPC]
     public void FirstTouchSync()
     {
-        manage.FirstTouch += 1;
+      //  manage.FirstTouch += 1;
     }
         // Update is called once per frame
         void Update()
@@ -375,12 +375,12 @@ public class PlayerMovement : MonoBehaviourPun,IPunObservable
         {
             if (pv.IsMine)
             {
-                if (FirstTouchGameStart == false)
-                {
-                    pv.RPC("FirstTouchSync", RpcTarget.AllBuffered, null);
+                //if (FirstTouchGameStart == false)
+                //{
+                //    pv.RPC("FirstTouchSync", RpcTarget.AllBuffered, null);
 
-                    FirstTouchGameStart = true;
-                }
+                //    FirstTouchGameStart = true;
+                //}
             }
          //   t1.text = Input.mousePosition.x.ToString();
             //if(Input.mousePosition.x>150f && Input.mousePosition.x < 600f)
